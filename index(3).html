@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Irwin Abaho Itungo's Personal Profile Website</title>
+
+    <style>
+
+       body {
+            font-family:Arial,sans-serif;
+            background-color:#f4f4f9; 
+            margin: 0;
+            padding: 0;  
+       }
+
+       header {
+       background-color:#4CAF50;
+       color:white;
+       text-align: center;
+       padding: 20px;
+       }
+
+       nav {
+       background-color:#333;
+       text-align: center;
+       padding: 10px; 
+       }
+       nav a {
+       color:white;
+       margin:0 15px;
+       text-decoration:none; 
+       }
+
+       nav a:hover {
+       background-color:#ddd;
+       color:black; 
+       }
+
+       section {
+        padding:20px;
+       }
+       
+       #main-like-button {
+            font-size:20px;
+            padding: 10px 20px;
+            background-color:#ff4d4d;
+            color:white;
+            border:none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition:0.2s;          
+       }
+
+       #main-like-button:hover {
+        background-color:#e60000;
+       }
+
+    .like-button {
+     margin-left: 10px;
+     padding:4px 8px;
+     background-color:#eee;
+     border:none;
+     cursor:pointer;
+     border-radius: 5px;       
+    }
+
+    .like-button:hover {
+           background-color:#ddd;         
+    }
+   </style>
+   </head>
+
+   <body>
+
+     <header>
+          <h1>Welcome to Irwin Abaho Itungo's Personal Profile Website</h1>
+          <a href="game.html" style="font-size: 20px; padding: 12px 25px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 10px; display: inline-block; margin-top: 20px;">
+            🎮 Play My Educational Game
+          </a>
+          
+      </header>
+
+      <nav>
+       <a href="#about">About Me</a>
+       <a href="#contact">Contact</a>     
+      </nav>
+
+      <section id="about">
+
+          <h2>About Me</h2>
+          <p>Hello! I'm<strong>Irwin Abaho Itungo</strong>and I am<strong>13 years old</strong>.I am a boy. I love coding,playing basketball,and doing mathematics.It has inspired me to do wonderful things like make a website,playing basketball and join mathematics competitions. It has shown me that anyone can become successful if you put effort in it. And it has showed me that an african can also succeed. So if you think I can do it please leave a like and a comment. Thank you for your time.</p>
+          </section>
+
+       <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label><br>
+
+                <input type="text" id="name"name="name" required><br><br>
+
+                <label for="email">Email:</label><br>
+
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="message">Message:</label><br>
+
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                <button type="submit">Send</button>
+              </form>
+
+              <hr>
+
+              <!--Like Button and Counters-->
+              <div style="text-align:center;margin-top:20px;">
+                 <button id="main-like-button">👍Like(<span id="main-like-count">0</span>)</button>
+                 <p>💬Comments:<span id="comment-count">0</span></p>
+              </div>
+
+              <hr>
+
+              <!--Comment Form-->
+              <h3>Leave a Comment</h3>
+
+              <form id="comment-form">
+
+                 <label for="comment-name">Your Name:</label><br>
+
+                 <input type="text" id="comment-name" name="Comment-name" required><br><br>           
+
+                 <label for="comment-text">Your Comment:</label><br>
+
+                 <textarea id="comment-text" name="comment-text" rows="3"required></textarea><br><br>
+
+                 <button type="submit">Post Comment</button>
+                 </form>
+                 <!--Comments Section-->
+
+                 <div id="comments-section">
+                   <h4>Comments:</h4>
+                   <ul id="comment-list"></ul>
+                 </div>
+
+                 </section>
+                
+                <script>
+                 // Contact Form
+                 document.getElementById('contact-form').addEventListener('submit',function(event) {
+                 event.preventDefault();
+                 alert('Thank you for your message!');  
+                 document.getElementById('contact-form').reset();
+                 });
+
+                 // Main Like Button
+                 document.getElementById('main-like-button').addEventListener('click',function() {
+                 const likeCount = document.getElementById('main-like-count');
+                 likeCount.textContent = parseInt(likeCount.textContent)+1;
+                 });
+                 
+                 // Comment Form (no like button per comment)
+                 document.getElementById('comment-form').addEventListener('submit',function(event) {
+                 event.preventDefault();
+                 
+                 const name = document.getElementById('comment-name').value;
+
+                 const text = document.getElementById('comment-text').value;
+
+                 const commentList = document.getElementById('comment-list');
+
+                 const newComment = document.createElement('li');
+
+                 newComment.innerHTML ='<strong>${name}</strong>:${text}';
+
+
+
+                 commentList.appendChild(newComment);
+                 document.getElementById('comment-form').reset();
+                     // Update comment counter
+                     const commentCount =document.getElementById('comment-count');
+                     commentCount.textContent =parseInt(commentCount.textContent) +1;
+                 });
+                  
+                 </script>
+
+                 </body>
+                 </html>
